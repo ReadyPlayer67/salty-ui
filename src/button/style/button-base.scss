@@ -19,9 +19,14 @@
   transition: background-color $s-animation-duration-slow $s-animation-ease-in-out-smooth,
   border-color $s-animation-duration-slow $s-animation-ease-in-out-smooth,
   color $s-animation-duration-slow $s-animation-ease-in-out-smooth;
+
+  //禁用状态
+  &[disabled]{
+    @apply cursor-not-allowed
+  }
 }
 
-//$variant参数就是type(primary,secondary...)
+//定义一个方法用来动态添加button-config中配置的不同type的button的样式
 @mixin button-variant($variant, $pseudo: false) {
   @each $key, $value in $variant { // 第一层是多态的类型
     &.s-btn--#{$key} {

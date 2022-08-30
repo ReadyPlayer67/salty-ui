@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Test from "./components/Test";
-import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <HelloWorld/>
-  <Test/>
+  <div style="margin: 50px auto;display: flex;justify-content: center">
+    <SButton type="primary">确定</SButton>
+  </div>
+
 </template>
 
 <style scoped>

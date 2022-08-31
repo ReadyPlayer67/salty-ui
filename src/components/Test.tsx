@@ -29,10 +29,10 @@ export default defineComponent({
       return (
         //事件修饰符
         <div onClick={withModifiers(inc, ['self'])}>
-          {count.value}
+          test: {count.value}
           <br/>
           <input v-show={false}/>
-          <input v-focus v-model={count.value}/>
+          {/*<input v-focus v-model={count.value}/>*/}
           <div>{span}</div>
           <ul>
             {[1, 2, 3].map(item => <li>{item}</li>)}

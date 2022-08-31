@@ -1,5 +1,5 @@
 import Button from "./src/button";
-import {App} from "vue";
+import type {App} from "vue";
 //具名导出
 export {Button}
 //导出插件

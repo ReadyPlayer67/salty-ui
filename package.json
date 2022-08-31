@@ -12,7 +12,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:serve": "vitepress serve docs",
     "docs:build": "vitepress build docs",
-    "test": "vitest"
+    "test": "vitest",
+    "build:components": "node scripts/build.cjs"
   },
   "dependencies": {
     "vue": "^3.2.37"
@@ -28,6 +29,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.4.0",
+    "fs-extra": "^10.1.0",
     "happy-dom": "^6.0.4",
     "mrm": "2",
     "postcss": "^8.4.16",

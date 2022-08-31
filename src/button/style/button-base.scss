@@ -21,8 +21,12 @@
   color $s-animation-duration-slow $s-animation-ease-in-out-smooth;
 
   //禁用状态
-  &[disabled]{
+  &[disabled] {
     @apply cursor-not-allowed
+  }
+
+  &.s-btn--block {
+    @apply block w-full
   }
 }
 

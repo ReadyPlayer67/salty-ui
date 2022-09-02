@@ -30,16 +30,16 @@ const rollupOptions = {
 //生成package.json
 const createPackageJson = (name) => {
   const fileStr = `{
-    "name": "${name || 'salt-ui'}",
+    "name": "${name || 'salty-ui'}",
     "version": "0.0.0",
-    "main": "${name ? 'index.umd.js' : 'salt-ui.umd.js'}",
-    "module": "${name ? 'index.js' : 'salt-ui.js'}",
+    "main": "${name ? 'index.umd.js' : 'salty-ui.umd.js'}",
+    "module": "${name ? 'index.js' : 'salty-ui.js'}",
     "author": "ReadyPlayer67",
     "github": "",
     "description": "My first vue3 component library",
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/ReadyPlayer67/salt-ui.git"
+      "url": "git+https://github.com/ReadyPlayer67/salty-ui.git"
     },
     "keywords": ["vue3", "组件库", "tsx", "UI"],
     "license": "ISC"
@@ -92,8 +92,8 @@ const buildAll = async () => {
         rollupOptions,
         lib: {
           entry: entryFile,
-          name: 'salt-ui',
-          fileName: 'salt-ui',
+          name: 'salty-ui',
+          fileName: 'salty-ui',
           formats: ['es', 'umd']
         },
         outDir: outputDir

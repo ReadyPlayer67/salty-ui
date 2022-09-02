@@ -1,0 +1,19 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsnd ./src/index.ts create",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "8.2.0",
+    "fs-extra": "^10.1.0",
+    "inquirer": "8.2.0",
+    "kolorist": "^1.5.1"
+  }
+}

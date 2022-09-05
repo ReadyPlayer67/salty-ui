@@ -1,6 +1,7 @@
 //inquirer比较老旧，是commonjs规范的，所以不能用import inquirer from 'inquirer'
 import * as inquirer from 'inquirer'
 import {red} from 'kolorist'
+import createComponent from "../shared/create-component";
 //创建类型
 const CREATE_TYPES = ['component', 'lib-entry']
 //组件分类
@@ -28,6 +29,7 @@ export async function onCreate(args = {type: ''}) {
     console.log(
       red(`当前类型仅支持：${CREATE_TYPES.join(', ')}，您输入的是"${type}"，请重新选择！`)
     )
+    //返回开头，让用户重新选择
     return onCreate()
   }
   //输入正确，开始创建对应的内容
@@ -72,8 +74,4 @@ export async function onCreate(args = {type: ''}) {
   } catch (error) {
 
   }
-}
-
-function createComponent(info){
-  console.log(info)
 }

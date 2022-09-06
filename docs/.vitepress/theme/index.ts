@@ -1,8 +1,9 @@
 import Theme from 'vitepress/dist/client/theme-default/index.js'
-import Test from "../../../src/components/Test"
 import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
 import 'vitepress-theme-demoblock/theme/styles/index.css'
+import {Button} from '../../../src/button'
+import {Tree} from '../../../src/tree'
 
 export default {
     ...Theme,
@@ -11,6 +12,7 @@ export default {
         //注册组件
         app.component('DemoBlock',DemoBlock)
         app.component('Demo',Demo)
-        app.component('Test',Test)
+        app.component('SButton',Button)
+        app.component('STree',Tree)
     }
 }

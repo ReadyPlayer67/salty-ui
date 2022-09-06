@@ -20,7 +20,7 @@ specifiers:
   tailwindcss: ^3.1.8
   typescript: ^4.6.4
   vite: ^3.0.7
-  vitepress: 1.0.0-alpha.12
+  vitepress: 1.0.0-alpha.8
   vitepress-theme-demoblock: ^1.4.2
   vitest: ^0.22.1
   vue: ^3.2.37
@@ -49,7 +49,7 @@ devDependencies:
   tailwindcss: 3.1.8_postcss@8.4.16
   typescript: 4.8.2
   vite: 3.0.9_sass@1.54.5
-  vitepress: 1.0.0-alpha.12_sass@1.54.5
+  vitepress: 1.0.0-alpha.8_sass@1.54.5
   vitepress-theme-demoblock: 1.4.2_sass@1.54.5
   vitest: 0.22.1_xf5txcfn64vdfvrnh7wsbcy7ha
   vue-tsc: 0.39.5_typescript@4.8.2
@@ -4721,8 +4721,8 @@ packages:
       - supports-color
     dev: true
 
-  /vitepress/1.0.0-alpha.12_sass@1.54.5:
-    resolution: {integrity: sha512-++e7p9oxqk7RKz2fMNtrOAWmZSWVPozDuOG1owwntPRincC8/pIhPkJ9ojNHcHCHBylszJBsjkRqbseurZ7vCg==}
+  /vitepress/1.0.0-alpha.8_sass@1.54.5:
+    resolution: {integrity: sha512-kTRN5DCagvMqr9OjylSV9/waGg0IHrxL0hBVuJoz7ykleZq2qR02n5CaiFq5QrSB/VRBGqiVsFQzet9vJsXS8g==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.2.1

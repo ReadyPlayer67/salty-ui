@@ -1,6 +1,5 @@
-//创建组件核心文件模板
 import {upperFirst} from "./utils";
-
+//创建组件核心文件模板
 export default function genCoreTemplate(name: string) {
   const compName = 'S' + upperFirst(name)
   //属性类型名和属性名
@@ -8,15 +7,14 @@ export default function genCoreTemplate(name: string) {
   const propsName = name + 'Props'
   const propsFileName = name + '-type'
   const className = 's-' + name
-  return `
+  return `\
 import {defineComponent, toRefs} from "vue";
-import {${propsTypeName}, ${propsName} from "./${propsFileName}";
+import {${propsTypeName}, ${propsName}} from "./${propsFileName}";
 
 export default defineComponent({
   name: '${compName}',
   props: ${propsName},
   setup(props: ${propsTypeName}) {
-    const {type, size, disabled, block} = toRefs(props)
     return () => {
       return (
         <div class="${className}"></div>

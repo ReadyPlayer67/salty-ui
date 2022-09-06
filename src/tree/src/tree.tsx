@@ -1,12 +1,10 @@
-
 import {defineComponent, toRefs} from "vue";
-import {treeProps, treeProps from "./tree-type";
+import {TreeProps, treeProps} from "./tree-type";
 
 export default defineComponent({
-  name: 'Stree',
+  name: 'STree',
   props: treeProps,
-  setup(props: treeProps) {
-    const {type, size, disabled, block} = toRefs(props)
+  setup(props: TreeProps) {
     return () => {
       return (
         <div class="s-tree"></div>
@@ -14,4 +12,3 @@ export default defineComponent({
     }
   }
 })
-  

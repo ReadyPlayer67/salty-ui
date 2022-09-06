@@ -33,7 +33,14 @@ export default defineConfig({
   markdown: {
     config(md) {
       //这里可以使用markdown-it插件
-      md.use(demoBlockPlugin)
+      md.use(demoBlockPlugin,{
+        scriptReplaces: [
+          {
+            searchValue: /import {ref} from 'vue'/g,
+            replaceValue: 'const { ref } = Vue'
+          }
+        ]
+      })
     }
   }
 })

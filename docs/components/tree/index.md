@@ -1,49 +1,64 @@
 # 树🌲
 
 :::demo Tree组件基本用法，传入
+
   ```vue
-    <template>
-      <STree :data="data"></STree>
-    </template>
-    <script setup>
-      const data = [
+<template>
+  <STree :data="data"></STree>
+</template>
+<script setup>
+import {ref} from 'vue'
+
+const data = ref([
+  {
+    label: 'docs',
+    id: 'docs',
+  },
+  {
+    label: 'packages',
+    id: 'packages',
+    expanded: true,
+    children: [
       {
-        label: 'docs',
-        id: 'node-1',
-        level: 1,
-      },
-      {
-        label: 'packages',
-        id: 'node-2',
-        expanded: true,
-        level: 1,
+        label: 'plugin-vue',
+        id: 'plugin-vue',
       },
       {
         label: 'vite',
-        id: 'node-2-1',
-        parentId: 'node-2',
+        id: 'vite',
         expanded: true,
-        level: 2,
-      },
-      {
-        label: 'README.md',
-        id: 'node-2-1-1',
-        parentId: 'node-2-1',
-        isLeaf: true,
-        level: 3,
-      },
-      {
-        label: 'scripts',
-        id: 'node-3',
-        level: 1,
-      },
-      {
-        label: 'pnpm-workspace.yaml',
-        id: 'node-4',
-        level: 1,
-        isLeaf: true,
+        children: [
+          {
+            label: 'src',
+            id: 'src',
+          },
+          {
+            label: 'README.md',
+            id: 'README.md',
+          },
+        ]
       },
     ]
-    </script>
+  },
+  {
+    label: 'scripts',
+    id: 'scripts',
+    children: [
+      {
+        label: 'release.ts',
+        id: 'release.ts',
+      },
+      {
+        label: 'verifyCommit.ts',
+        id: 'verifyCommit.ts',
+      },
+    ]
+  },
+  {
+    label: 'pnpm-workspace.yaml',
+    id: 'pnpm-workspace.yaml',
+  },
+])
+</script>
 ```
   :::

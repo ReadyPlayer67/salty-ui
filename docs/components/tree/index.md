@@ -43,6 +43,7 @@ const data = ref([
   {
     label: 'scripts',
     id: 'scripts',
+    expanded: true,
     children: [
       {
         label: 'release.ts',

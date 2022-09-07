@@ -4,6 +4,10 @@ export const treeProps = {
   data: {
     type: Object as PropType<ITreeNode[]>,
     required: true
+  },
+  checkable: {
+    type: Boolean,
+    default: false
   }
 } as const
 
@@ -22,6 +26,7 @@ export interface ITreeNode {
   disableCheck?: boolean
   disableToggle?: boolean
 }
+
 //因为嵌套结构需要通过递归的方式来操作，编码不方便而且很难使用虚拟滚动来做性能优化
 //设计一个扁平的数据结构IInnerTreeNode，将树的嵌套数据结构拍平成一个扁平的数组
 export interface IInnerTreeNode extends ITreeNode {

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import {generateInnerTree} from "./tree/src/utils";
+import STree from "./tree/src/tree";
+import {ref} from "vue";
 
 const confirm = () => {
   console.log('confirm')
 }
-const tree = [
+const tree = ref([
   {
     label: 'docs',
     id: 'docs',
@@ -54,17 +56,13 @@ const tree = [
     label: 'pnpm-workspace.yaml',
     id: 'pnpm-workspace.yaml',
   },
-];
-
-console.log(generateInnerTree(tree))
+])
 
 </script>
 
 <template>
   <div style="margin: 50px auto;display: flex;justify-content: center">
-    <SButton type="primary" size="large" disabled @click="confirm">确定</SButton>
-    <SButton type="text" @click="confirm">确定</SButton>
-    <SButton type="secondary" size="small" @click="confirm" block>确定</SButton>
+    <STree :data="tree"/>
   </div>
 
 </template>

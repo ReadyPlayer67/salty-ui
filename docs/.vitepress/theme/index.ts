@@ -2,6 +2,7 @@ import Theme from 'vitepress/dist/client/theme-default/index.js'
 import DemoBlock from 'vitepress-theme-demoblock/components/DemoBlock.vue'
 import Demo from 'vitepress-theme-demoblock/components/Demo.vue'
 import 'vitepress-theme-demoblock/theme/styles/index.css'
+import '../../../src/index.scss'
 import {Button} from '../../../src/button'
 import {Tree} from '../../../src/tree'
 

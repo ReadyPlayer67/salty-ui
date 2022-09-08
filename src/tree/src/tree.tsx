@@ -8,7 +8,7 @@ const NODE_INDENT = 24
 export default defineComponent({
   name: 'STree',
   props: treeProps,
-  setup(props: TreeProps) {
+  setup(props: TreeProps, {slots}) {
     const {data, checkable} = toRefs(props)
     const {expandedTree, toggleNode, getChildren, toggleCheckNode} = useTree(data)
     return () => {
@@ -29,7 +29,8 @@ export default defineComponent({
               }
               {/*折叠图标*/}
               {treeNode.isLeaf ?
-                <span style={{display: 'inline-block', width: '25px'}}></span> :
+                slots.icon ? slots.icon({nodeData: treeNode, toggleNode}) :
+                  <span style={{display: 'inline-block', width: '25px'}}></span> :
                 <svg onClick={() => toggleNode(treeNode)} style={{
                   width: '25px',
                   height: '15px',
@@ -47,7 +48,9 @@ export default defineComponent({
                   () => toggleCheckNode(treeNode)
                 }/>
               }
-              {treeNode.label}
+              {
+                slots.content ? slots.content(treeNode) : treeNode.label
+              }
             </div>
           ))
         }</div>

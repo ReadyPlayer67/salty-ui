@@ -1,6 +1,7 @@
 import {computed, ref, Ref, unref} from "vue";
 import {IInnerTreeNode, ITreeNode} from "../tree-type";
 import {generateInnerTree} from "../utils";
+import {randomId} from "../../../shared/utils";
 
 export default function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
   const innerData = ref(generateInnerTree(unref(node)))
@@ -62,17 +63,55 @@ export default function useTree(node: Ref<ITreeNode[]> | ITreeNode[]) {
     //获取node的兄弟节点，相当于获取parentNode的直接子节点
     const siblingNodes = getChildren(parentNode, false)
     const checkedSiblingNodes = siblingNodes.filter(item => item.checked)
-    if(siblingNodes.length === checkedSiblingNodes.length){
+    if (siblingNodes.length === checkedSiblingNodes.length) {
       parentNode.checked = true
-    }else{
+    } else {
       parentNode.checked = false
     }
+  }
+  const getIndex = (node: IInnerTreeNode) => {
+    if (!node) {
+      return -1
+    }
+    return innerData.value.findIndex(item => item.id === node.id)
+  }
+  const append = (parent: IInnerTreeNode, node: IInnerTreeNode) => {
+    //获取parent节点的最后一个子节点
+    const children = getChildren(parent, false)
+    const lastChild = children[children.length - 1]
+    //确定未来要插入新节点的位置索引，默认是parent接的的索引+1（parent为叶子节点）
+    let insertIndex = getIndex(parent) + 1
+    //如果parent不是叶子节点，即lastChild不为null，那么就应该插入到他最后一个child的后面
+    if (lastChild) {
+      insertIndex = getIndex(lastChild) + 1
+    }
+    //parent节点应该是展开，非叶子节点的状态，这样保证能看到新节点
+    parent.expanded = true
+    parent.isLeaf = false
+    const currentNode = ref({
+      ...node,
+      level: parent.level + 1,
+      isLeaf: true,
+      parentId: parent.id
+    })
+    if (currentNode.value.id === undefined) {
+      currentNode.value.id = randomId()
+    }
+    innerData.value.splice(insertIndex, 0, currentNode.value)
+  }
+  const remove = (node: IInnerTreeNode) => {
+    const childrenIds = getChildren(node).map(item => item.id)
+    innerData.value = innerData.value.filter(item => {
+      return item.id !== node.id && !childrenIds.includes(item.id)
+    })
   }
   return {
     innerData,
     toggleNode,
     expandedTree,
     getChildren,
-    toggleCheckNode
+    toggleCheckNode,
+    append,
+    remove
   }
 }

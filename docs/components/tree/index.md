@@ -202,3 +202,34 @@ const data = ref([
 </script>
 ```
 :::
+
+## 操作节点
+通过设置operable属性打开节点操作按钮
+:::demo
+
+  ```vue
+<template>
+  <STree :data="data" operable></STree>
+</template>
+<script setup>
+import {ref} from 'vue'
+
+const data = ref([
+  {
+    label: 'node 1',
+    id: 'node-1',
+    children: [
+      {
+        label: 'node 1-1',
+        id: 'node-1-1'
+      },
+    ]
+  },
+  {
+    label: 'node 2',
+    id: 'node-2'
+  },
+])
+</script>
+```
+:::

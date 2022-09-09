@@ -9,9 +9,9 @@ export default defineComponent({
   props: treeProps,
   setup(props: TreeProps, {slots}) {
     const {data} = toRefs(props)
-    const {expandedTree, toggleNode, getChildren, toggleCheckNode} = useTree(data)
+    const {expandedTree, toggleNode, getChildren, toggleCheckNode, append, remove} = useTree(data)
     provide('TREE_UTILS', {
-      toggleNode, getChildren, toggleCheckNode
+      toggleNode, getChildren, toggleCheckNode, append, remove
     })
     return () => {
       return (
@@ -27,7 +27,9 @@ export default defineComponent({
                     (
                       slots.icon({nodeData: treeNode, toggleNode})
                     ) : (
-                      <STreeNodeToggle expanded={!!treeNode.expanded} onClick={() => {toggleNode(treeNode)}}/>
+                      <STreeNodeToggle expanded={!!treeNode.expanded} onClick={() => {
+                        toggleNode(treeNode)
+                      }}/>
                     )
                 }
               }}

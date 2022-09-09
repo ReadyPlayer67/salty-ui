@@ -8,6 +8,10 @@ export const treeProps = {
   checkable: {
     type: Boolean,
     default: false
+  },
+  operable: {
+    type: Boolean,
+    default: false
   }
 } as const
 

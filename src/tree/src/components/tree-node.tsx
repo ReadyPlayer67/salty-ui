@@ -1,17 +1,11 @@
 import {defineComponent, inject, ref, toRefs} from 'vue'
 import {TreeNodeProps, treeNodeProps} from "./tree-node-type";
 import {IInnerTreeNode} from "../tree-type";
+import {TreeUtils} from "./use-tree-types";
 
 const NODE_HEIGHT = 28
 const NODE_INDENT = 24
 
-type TreeUtils = {
-  toggleNode: (treeNode: IInnerTreeNode) => void
-  getChildren: (treeNode: IInnerTreeNode) => IInnerTreeNode[]
-  toggleCheckNode: (treeNode: IInnerTreeNode) => void,
-  append: (parent: IInnerTreeNode, node: IInnerTreeNode) => void,
-  remove: (parent: IInnerTreeNode) => void
-}
 
 export default defineComponent({
   name: 'STreeNode',

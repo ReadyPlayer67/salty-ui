@@ -37,4 +37,6 @@ export interface IInnerTreeNode extends ITreeNode {
   parentId?: string; // 父节点ID
   level: number;     // 节点层级
   isLeaf?: boolean;  // 是否叶子结点
+  loading?: boolean   //节点是否显示加载中
+  childNodeCount?: number  //该节点子节点数量
 }

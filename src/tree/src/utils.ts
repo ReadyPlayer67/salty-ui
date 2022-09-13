@@ -20,7 +20,11 @@ export function generateInnerTree(
       //将当前节点和他所有的children节点拼接在一起
       return prev.concat(o, children)
     } else {
-      o.isLeaf = true
+      //如果是懒加载，isLeaf会被设置为false，则我们不需要设置
+      //如果没有初始化，isLeaf默认设置为true
+      if(o.isLeaf === undefined){
+        o.isLeaf = true
+      }
       return prev.concat(o)
     }
   }, [] as IInnerTreeNode[])

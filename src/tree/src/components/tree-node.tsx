@@ -1,7 +1,7 @@
 import {defineComponent, inject, ref, toRefs} from 'vue'
 import {TreeNodeProps, treeNodeProps} from "./tree-node-type";
 import {IInnerTreeNode} from "../tree-type";
-import {TreeUtils} from "./use-tree-types";
+import {TreeUtils} from "../composables/use-tree-types";
 
 const NODE_HEIGHT = 28
 const NODE_INDENT = 24
@@ -102,6 +102,10 @@ export default defineComponent({
               </svg>
             </span>
           )}
+          {/*loading状态显示*/}
+          {
+            treeNode.value.loading && slots.loading!()
+          }
         </div>
       )
     }

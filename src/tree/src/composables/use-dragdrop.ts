@@ -25,7 +25,7 @@ export function useDragdrop(
     draggingNode: null,
     draggingTreeNode: null
   })
-
+  //将树节点数据数组转换为id:node的map
   const treeIdMapValue = computed<Record<string | number, IInnerTreeNode>>(
     () => {
       return data.value.reduce(
@@ -41,7 +41,7 @@ export function useDragdrop(
   const removeDraggingStyle = (target: HTMLElement | null) => {
     target?.classList.remove(...Object.values(dropTypeMap))
   }
-
+  //判断childNodeId节点是否是parentNodeId节点的子孙节点
   const checkIsParent = (
     childNodeId: number | string,
     parentNodeId: number | string
@@ -94,7 +94,7 @@ export function useDragdrop(
       const { dropPrev, dropNext, dropInner } = curDropType
 
       let innerDropType: DragState['dropType']
-
+      //所占比小于0.25为dropPrev，大于0.75为dropNext，0.25~0.75之间为dropInner
       const prevPercent = dropPrev
         ? dropInner
           ? 0.25
@@ -112,7 +112,7 @@ export function useDragdrop(
       const currentTarget = event.currentTarget as HTMLElement | null
       const targetPosition = currentTarget?.getBoundingClientRect()
       const distance = event.clientY - (targetPosition?.top || 0)
-
+      //根据当前鼠标和经过节点上边框的距离判定用户当前的操作是dropInner，dropPrev还是dropNext
       if (distance < (targetPosition?.height || 0) * prevPercent) {
         innerDropType = 'dropPrev'
       } else if (distance > (targetPosition?.height || 0) * nextPercent) {
@@ -122,6 +122,7 @@ export function useDragdrop(
       } else {
         innerDropType = undefined
       }
+      //根据当前拖拽操作的类型给dropNode添加反馈样式
       if (innerDropType) {
         const classList = currentTarget?.classList
         if (classList) {

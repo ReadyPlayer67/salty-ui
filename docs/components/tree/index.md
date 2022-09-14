@@ -1,6 +1,7 @@
 # 树🌲
 
-:::demo Tree组件基本用法
+## 基本用法
+:::demo
 
   ```vue
 <template>
@@ -64,8 +65,9 @@ const data = ref([
 ```
   :::
 
-
-:::demo 勾选功能，请设置checkable属性
+## 勾选
+设置checkable属性可支持勾选
+:::demo
 
   ```vue
 <template>
@@ -130,6 +132,8 @@ const data = ref([
 ```
 :::
 
+## 自定义图标
+支持设置icon插槽
 :::demo 自定义图标，设置icon插槽
 
   ```vue
@@ -204,7 +208,7 @@ const data = ref([
 :::
 
 ## 操作节点
-通过设置operable属性打开节点操作按钮
+通过设置`operable`属性打开节点操作按钮
 :::demo
 
   ```vue
@@ -235,7 +239,7 @@ const data = ref([
 :::
 
 ## 节点懒加载
-通过设置该节点 isLeaf 参数为 false, 组件回调 lazyLoad 方法实现节点懒加载。
+通过设置该节点`isLeaf`参数为`false`, 组件回调`lazyLoad`方法实现节点懒加载。
 :::demo 通过设置该节点 isLeaf 参数为 false, 组件回调 lazyLoad 方法实现节点懒加载。
 ```vue
 <template>
@@ -303,6 +307,48 @@ export default defineComponent({
       lazyLoad,
     }
   }
+})
+</script>
+```
+:::
+
+## 可拖拽树
+通过`dragdrop`属性配置节点的拖拽功能。
+:::demo
+```vue
+<template>
+  <h6><p>默认行为</p></h6>
+  <STree :data="data" dragdrop></STree>
+
+  <h6><p>排序</p></h6>
+  <STree :data="data" :dragdrop="{ dropPrev: true, dropNext: true, dropInner: true }"></STree>
+</template>
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  setup() {
+    const data = ref([
+      {
+        label: 'node 1',
+        id: 'node-1',
+        children: [
+          {
+            label: 'node 1-1',
+            id: 'node-1-1'
+          },
+        ]
+      },
+      {
+        label: 'node 2',
+        id: 'node-2'
+      },
+    ])
+
+    return {
+      data,
+    }
+  },
 })
 </script>
 ```

@@ -11,7 +11,11 @@
     }
     animation: rotating 2s linear infinite;
     color: #a8abb2;
+  }
+  .s-tree__node{
+    &--content{
 
+    }
   }
 
 }

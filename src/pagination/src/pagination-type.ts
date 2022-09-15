@@ -8,6 +8,10 @@ export const paginationProps = {
   pageSize: {
     type: Number,
     default: 10
+  },
+  pagerCount:{
+    type: Number,
+    default: 7
   }
 } as const
 

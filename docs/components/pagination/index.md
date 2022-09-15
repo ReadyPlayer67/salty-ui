@@ -5,6 +5,6 @@
 :::demo
 ```vue
 <template>
-  <SPagination :total="50"></SPagination>
+  <SPagination :total="100"></SPagination>
 </template>
 ```

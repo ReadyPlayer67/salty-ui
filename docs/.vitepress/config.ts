@@ -14,7 +14,12 @@ const sidebar = [
       {text: 'Button 按钮', link: '/components/button/'} // /components/button/index.md
     ]
   },
-  {text: '导航', items: []},
+  {
+    text: '导航',
+    items: [
+      {text: 'Pagination 分页', link: '/components/pagination/'}
+    ]
+  },
   {text: '反馈', items: []},
   {text: '数据录入', items: []},
   {
@@ -33,7 +38,7 @@ export default defineConfig({
   markdown: {
     config(md) {
       //这里可以使用markdown-it插件
-      md.use(demoBlockPlugin,{
+      md.use(demoBlockPlugin, {
         scriptReplaces: [
           {
             searchValue: /import {ref} from 'vue'/g,

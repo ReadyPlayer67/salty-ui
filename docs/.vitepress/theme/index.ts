@@ -5,6 +5,7 @@ import 'vitepress-theme-demoblock/theme/styles/index.css'
 import '../../../src/index.scss'
 import {Button} from '../../../src/button'
 import {Tree} from '../../../src/tree'
+import {Pagination} from "../../../src/pagination";
 
 export default {
     ...Theme,
@@ -15,5 +16,6 @@ export default {
         app.component('Demo',Demo)
         app.component('SButton',Button)
         app.component('STree',Tree)
+        app.component('SPagination',Pagination)
     }
 }

@@ -1,0 +1,15 @@
+.s-virtual-list {
+  /* your component style */
+  &__container {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+
+  &__blank {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}

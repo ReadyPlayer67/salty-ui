@@ -16,7 +16,6 @@
 //动态值
 //1.滚动条位置 scrollTop
 import {computed, ref} from "vue";
-import {MouseEvent, UIEvent} from "happy-dom";
 
 const containerHeight = 300
 const itemHeight = 24
@@ -34,7 +33,7 @@ const visibleData = computed(() => {
 })
 //列表在Y轴transform的偏移量
 const offsetY = ref(0)
-const scrollEvent = (event: Event) => {
+const scrollEvent = (event: UIEvent) => {
   const {scrollTop} = event.target as HTMLElement
   //当scrollTop发生变化，重新计算startIndex，同时依赖startIndex的visibleData也就动态变化了
   //某个元素被遮挡了一半也是需要显示的，所以这里要向下取整

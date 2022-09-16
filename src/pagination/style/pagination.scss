@@ -3,11 +3,16 @@
 .s-pagination {
   display: flex;
   /* your component style */
+  button[disabled]{
+    cursor: not-allowed;
+  }
   .s-pager {
+    margin: 0;
     list-style: none;
     display: flex;
     padding-left: 0;
     li {
+      min-width: 24px;
       cursor: pointer;
       margin-top: 0;
       padding: 0 4px;

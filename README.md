@@ -13,7 +13,7 @@ Salty-UI
 <p>
 
 <p align="center">
-<a href="https://cn.vitest.dev">文档地址</a>
+<a href="http://121.4.59.7:7080/">文档地址</a>
 </p>
 
 
@@ -30,7 +30,7 @@ Salty-UI
 - ⚙️使用Vitest进行单元测试
 - 🔨eslint + prettier + husky，完整的代码校验体系
 - 📜基于vitepress的自动化文档
-- 🔳支持用命令行创建组件
+- 🔳支持使用命令行创建组件
 
 ## 目前进度
 - [x] Tree
@@ -45,7 +45,14 @@ Salty-UI
 - [ ] Table
 - [ ] Breadcrumb
 
+
+### 创建组件
 ```bash
-$ npx vitest
+cd cli
+pnpm run cli -t component
 ```
 
+### 打包组件库
+```bash
+pnpm run build:component
+```

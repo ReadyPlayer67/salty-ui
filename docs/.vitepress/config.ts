@@ -2,12 +2,12 @@ import {defineConfig} from 'vitepress'
 import {demoBlockPlugin} from 'vitepress-theme-demoblock'
 
 const sidebar = [
-  {
-    text: '快速开始',
-    items: [
-      {text: '安装', link: '/guide/install'} // /guide/install.md
-    ]
-  },
+  // {
+  //   text: '快速开始',
+  //   items: [
+  //     {text: '安装', link: '/guide/install'} // /guide/install.md
+  //   ]
+  // },
   {
     text: '通用',
     items: [
@@ -32,7 +32,10 @@ const sidebar = [
 ]
 
 export default defineConfig({
+  title:'Salty-UI',
+  description: '一个小巧的，基于Vue3的组件库',
   themeConfig: {
+    logo:'./logo.svg',
     sidebar
   },
   markdown: {

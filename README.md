@@ -1,16 +1,51 @@
-# Vue 3 + TypeScript + Vite
+<p align="center">
+<img src="./public/cover.png" height="150">
+</p>
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<h1 align="center">
+Salty-UI
+</h1>
+<p align="center">
+一个小巧的，基于Vue3的组件库
+<p>
+<p align="center">
+  <a href="https://www.npmjs.com/package/salty-ui"><img src="https://img.shields.io/npm/l/salty-ui"></a>
+<p>
 
-## Recommended IDE Setup
+<p align="center">
+<a href="https://cn.vitest.dev">文档地址</a>
+</p>
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-## Type Support For `.vue` Imports in TS
+<h4 align="center">
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+</h4>
+<br>
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+## 特点
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+- ⚡ 基于pnpm和vite构建
+- 🔥 vue3 + TSX语法
+- 🎨TailwindCSS + sass的样式体系
+- ⚙️使用Vitest进行单元测试
+- 🔨eslint + prettier + husky，完整的代码校验体系
+- 📜基于vitepress的自动化文档
+- 🔳支持用命令行创建组件
+
+## 目前进度
+- [x] Tree
+- [x] Button
+- [x] Pagination
+- [ ] Form
+- [ ] Modal
+- [ ] Popover
+- [ ] Toast
+- [ ] Loading
+- [ ] Tabs
+- [ ] Table
+- [ ] Breadcrumb
+
+```bash
+$ npx vitest
+```
+

@@ -1,3 +1,5 @@
+@import '../../style/variable';
+
 .s-pagination {
   display: flex;
   /* your component style */
@@ -6,6 +8,7 @@
     display: flex;
     padding-left: 0;
     li {
+      cursor: pointer;
       margin-top: 0;
       padding: 0 4px;
     }

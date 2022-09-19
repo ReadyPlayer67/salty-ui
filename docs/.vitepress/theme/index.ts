@@ -6,6 +6,7 @@ import '../../../src/index.scss'
 import {Button} from '../../../src/button'
 import {Tree} from '../../../src/tree'
 import {Pagination} from "../../../src/pagination";
+import './index.css'
 
 export default {
     ...Theme,

@@ -1,0 +1,12 @@
+:root {
+    --c-brand: #646cff;
+    --c-brand-light: #747bff;
+    /*--vp-code-block-bg: transparent;*/
+}
+.token.operator{
+    background: transparent;
+}
+
+.demo-block .xl-button {
+    margin: 0 10px 10px 0;
+}

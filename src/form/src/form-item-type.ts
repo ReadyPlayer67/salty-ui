@@ -1,5 +1,5 @@
 import {ExtractPropTypes} from "vue"
-import {Layout} from "./form-type";
+import {LabelAlign, LabelSize, Layout} from "./form-type";
 
 export const formItemProps = {
   label: {
@@ -10,5 +10,7 @@ export const formItemProps = {
 export type FormItemProps = ExtractPropTypes<typeof formItemProps>
 
 export type LabelData = {
-  layout: Layout
+  layout: Layout,
+  labelSize: LabelSize,
+  labelAlign: LabelAlign
 }

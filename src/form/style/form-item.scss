@@ -1,0 +1,31 @@
+.s-form__label {
+  align-self: flex-start;
+
+  &--vertical {
+    padding-bottom: 8px;
+  }
+
+  &--sm {
+    flex: 0 0 80px;
+  }
+
+  &--md {
+    flex: 0 0 100px;
+  }
+
+  &--lg {
+    flex: 0 0 150px;
+  }
+
+  &--start {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--end {
+    text-align: end;
+  }
+}

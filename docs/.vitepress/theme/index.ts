@@ -6,7 +6,7 @@ import '../../../src/index.scss'
 import {Button} from '../../../src/button'
 import {Tree} from '../../../src/tree'
 import {Pagination} from "../../../src/pagination";
-import {Form} from '../../../src/form'
+import {Form,FormItem} from '../../../src/form'
 import './index.css'
 
 export default {
@@ -20,5 +20,6 @@ export default {
         app.component('STree',Tree)
         app.component('SPagination',Pagination)
         app.component('SForm',Form)
+        app.component('SFormItem',FormItem)
     }
 }

@@ -9,7 +9,8 @@ export { Pagination,Pager }
 
 // 导出插件
 export default {
-  // install(app: App, options?: SheepUIOptions) {
-  //   installComponent(app, Pagination, options)
-  // }
+  install(app: App) {
+    app.component('SPagination', Pagination)
+    app.component('SPager', Pager)
+  }
 }

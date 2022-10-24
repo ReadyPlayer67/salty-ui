@@ -1,4 +1,5 @@
 import {ExtractPropTypes, PropType} from "vue"
+import type {Rules} from 'async-validator'
 
 export type Layout = 'horizontal' | 'vertical'
 export type LabelSize = 'sm' | 'md' | 'lg'
@@ -20,6 +21,9 @@ export const formProps = {
   labelAlign: {
     type: String as PropType<LabelAlign>,
     default: 'start'
+  },
+  rules: {
+    type: Object as PropType<Rules>
   }
 } as const
 

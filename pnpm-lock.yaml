@@ -6,6 +6,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.35.1
   '@vitejs/plugin-vue': ^3.0.3
   '@vitejs/plugin-vue-jsx': ^2.0.0
+  async-validator: ^4.2.5
   autoprefixer: ^10.4.8
   eslint: ^8.23.0
   eslint-config-prettier: ^8.5.0
@@ -27,6 +28,7 @@ specifiers:
   vue-tsc: ^0.39.5
 
 dependencies:
+  async-validator: 4.2.5
   vue: 3.2.37
 
 devDependencies:
@@ -1302,6 +1304,10 @@ packages:
   /assertion-error/1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
+
+  /async-validator/4.2.5:
+    resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
+    dev: false
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}

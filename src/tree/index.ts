@@ -8,7 +8,7 @@ export { Tree }
 
 // 导出插件
 export default {
-  // install(app: App, options?: SheepUIOptions) {
-  //   installComponent(app, Tree, options)
-  // }
+  install(app: App) {
+    app.component('STree', Tree)
+  }
 }

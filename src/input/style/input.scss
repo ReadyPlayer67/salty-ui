@@ -1,4 +1,7 @@
-.s-input {
-  /* your component style */
-
+.s-input__wrapper {
+  border: 1px solid #d7d8da;
+  border-radius: 2px;
+}
+.s-input__input {
+  width: 100%;
 }

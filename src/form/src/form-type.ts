@@ -1,4 +1,4 @@
-import {ExtractPropTypes, PropType} from "vue"
+import {ExtractPropTypes, InjectionKey, PropType} from "vue"
 import type {Rules} from 'async-validator'
 
 export type Layout = 'horizontal' | 'vertical'
@@ -28,3 +28,11 @@ export const formProps = {
 } as const
 
 export type FormProps = ExtractPropTypes<typeof formProps>
+
+export type FormContext = {
+  model: any,
+  rules?: Rules
+}
+
+//使用InjectionKey作为project-inject的key，可以实现inject对象的类型约束
+export const formContextToken: InjectionKey<FormContext> = Symbol('formContextToken')

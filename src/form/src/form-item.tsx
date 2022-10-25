@@ -81,11 +81,12 @@ export default defineComponent({
           {/*control*/}
           <div>
             {slots.default?.()}
+            {/*error messages*/}
+            {showMessage.value && (
+              <div class="error-message">{errorMessage.value}</div>
+            )}
           </div>
-          {/*error messages*/}
-          {showMessage.value && (
-            <div class="error-message">{errorMessage.value}</div>
-          )}
+
         </div>
       )
     }

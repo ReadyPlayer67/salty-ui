@@ -36,7 +36,7 @@ Salty-UI
 - [x] Tree
 - [x] Button
 - [x] Pagination
-- [ ] Form
+- [x] Form
 - [ ] Modal
 - [ ] Popover
 - [ ] Toast

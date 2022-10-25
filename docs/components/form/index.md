@@ -36,7 +36,7 @@ label-size提供sm、md、lg三种大小，分别对应80px、100px、150px，�
 
 <template>
   <p>
-    <span>labelSize:</span>
+    <span style="font-size:14px">labelSize:</span>
     <label>
       <input type="radio" value="sm" v-model="labelSize"/>
       sm
@@ -51,7 +51,7 @@ label-size提供sm、md、lg三种大小，分别对应80px、100px、150px，�
     </label>
   </p>
   <p>
-    <span>labelAlign:</span>
+    <span style="font-size:14px">labelAlign:</span>
     <label>
       <input type="radio" value="start" v-model="labelAlign"/>
       start

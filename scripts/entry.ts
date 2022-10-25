@@ -6,9 +6,10 @@ import TreePlugin, { Tree } from '../src/tree'
 import PaginationPlugin, { Pagination } from '../src/pagination'
 import FormPlugin, { Form } from '../src/form'
 import InputPlugin, { Input } from '../src/input'
+import ModalPlugin,{ Modal } from '../src/modal'
 
 //2.导出这些组件
-export { Button, Tree, Pagination, Form, Input }
+export { Button, Tree, Pagination, Form, Input, Modal }
 
 //3.导出一个vue插件
 const installs = [
@@ -17,6 +18,7 @@ const installs = [
   PaginationPlugin,
   FormPlugin,
   InputPlugin,
+  ModalPlugin
 ]
 export default {
   install(app: App) {

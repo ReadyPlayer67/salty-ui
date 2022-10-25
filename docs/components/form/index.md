@@ -31,7 +31,9 @@ const model = ref({
 label-size提供sm、md、lg三种大小，分别对应80px、100px、150px，默认为md；label-align可选值为start、center、end，默认为start。
 
 :::demo
+
 ```vue
+
 <template>
   <p>
     <span>labelSize:</span>
@@ -65,22 +67,23 @@ label-size提供sm、md、lg三种大小，分别对应80px、100px、150px，�
   </p>
   <s-form :model="model" layout="horizontal" :labelAlign="labelAlign" :labelSize="labelSize">
     <s-form-item label="用户名：">
-      <input />
+      <SInput/>
     </s-form-item>
     <s-form-item label="密码：">
-      <input type="password"/>
+      <SInput type="password"/>
     </s-form-item>
   </s-form>
   {{model}}
 </template>
 <script setup>
-  import {ref} from 'vue'
-  const model = ref({
-    user: 'tom',
-    password: ''
-  })
-  const labelSize = ref('md')
-  const labelAlign = ref('start')
+import {ref} from 'vue'
+
+const model = ref({
+  user: 'tom',
+  password: ''
+})
+const labelSize = ref('md')
+const labelAlign = ref('start')
 </script>
 ```
 :::
@@ -90,27 +93,29 @@ label-size提供sm、md、lg三种大小，分别对应80px、100px、150px，�
 :::demo
 
 ```vue
+
 <template>
   <s-form
       :model="model"
       :rules="rules"
-      layout="vertical"
+      layout="horizontal"
       @submit="onLogin"
       ref="loginForm"
   >
     <s-form-item label="用户名：" field="user">
-      <s-input v-model="model.user" />
+      <s-input v-model="model.user"/>
     </s-form-item>
     <s-form-item label="密码：" field="pwd">
-      <s-input type="password" v-model="model.pwd" />
+      <s-input type="password" v-model="model.pwd"/>
     </s-form-item>
     <s-form-item>
-      <button>登录</button>
+      <SButton>登录</SButton>
     </s-form-item>
   </s-form>
 </template>
 <script setup>
 import {ref} from 'vue'
+
 const model = ref({
   user: '',
   pwd: ''

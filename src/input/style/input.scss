@@ -1,7 +1,16 @@
 .s-input__wrapper {
-  border: 1px solid #d7d8da;
-  border-radius: 2px;
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 11px;
+  background-color: transparent;
+  background-image: none;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px #dcdfe6;
 }
 .s-input__input {
   width: 100%;
+  font-size: 14px;
+  line-height: 24px;
 }

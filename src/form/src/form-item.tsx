@@ -1,4 +1,4 @@
-import {computed, ComputedRef, defineComponent, inject, provide, ref} from "vue";
+import {computed, ComputedRef, defineComponent, inject, onMounted, onUnmounted, provide, ref} from "vue";
 import {FormItemProps, formItemProps, LabelData} from "./form-item-type";
 import {formContextToken} from "./form-type";
 import Validator from 'async-validator'
@@ -11,7 +11,8 @@ export default defineComponent({
     const itemClasses = computed(() => ({
       's-form__item': true,
       's-form__item--horizontal': labelData.value.layout === 'horizontal',
-      's-form__item--vertical': labelData.value.layout === 'vertical'
+      's-form__item--vertical': labelData.value.layout === 'vertical',
+      's-form__item--error': showMessage.value
     }))
     //必须是水平排列下面两个属性才生效
     const labelClasses = computed(() => ({
@@ -57,8 +58,20 @@ export default defineComponent({
         }
       })
     }
-    provide('FORM_ITEM_CTX',{
+    const formItemCtx = {
       validate
+    }
+    provide('FORM_ITEM_CTX',formItemCtx)
+    //在formItem组件挂载后将该组件上下文注册到formCtx中
+    onMounted(() => {
+      if(props.field){
+        formCtx?.addItem(formItemCtx)
+      }
+    })
+    onUnmounted(() => {
+      if(props.field){
+        formCtx?.removeItem(formItemCtx)
+      }
     })
     return () => {
       return (

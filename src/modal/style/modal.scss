@@ -11,10 +11,23 @@
 
   &__header {
     color: #606266;
-    padding: 20px;
-    padding-bottom: 10px;
+    padding: 20px 20px 10px;
     margin-right: 16px;
     word-break: break-all;
+  }
+
+  &__close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+
+    &:hover {
+      cursor: pointer;
+
+      path {
+        fill: #409eff;
+      }
+    }
   }
 
   &__body {
@@ -25,8 +38,7 @@
   }
 
   &__footer {
-    padding: 20px;
-    padding-top: 10px;
+    padding: 10px 20px 20px;
     text-align: right;
     box-sizing: border-box;
   }

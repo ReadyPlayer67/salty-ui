@@ -16,6 +16,10 @@ export const iconProps = {
   color: {
     type: String,
     default: 'inherit'
+  },
+  component: {
+    type: String,
+    default: null
   }
 } as const
 

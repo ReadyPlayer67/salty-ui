@@ -32,3 +32,15 @@
 </template>
 ```
 :::
+
+## svg图标
+设置`component`属性可以设置图标为svg图标
+:::demo
+```vue
+<template>
+  <s-icon component="vue" color="blue" size="30px"></s-icon>
+  <s-icon component="react" color="blue" size="30px"></s-icon>
+  <ArrowDownIcon size="30"/>
+</template>
+```
+:::

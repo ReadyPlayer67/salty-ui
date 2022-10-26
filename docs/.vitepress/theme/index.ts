@@ -7,6 +7,7 @@ import '../../../src/index.scss'
 import SaltyUI from '../../../scripts/entry'
 import './index.css'
 import './iconfont.css'
+import './iconfont.js'
 
 export default {
   ...Theme,

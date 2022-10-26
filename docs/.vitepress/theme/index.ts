@@ -6,6 +6,7 @@ import '../../../src/index.scss'
 //导入组件库
 import SaltyUI from '../../../scripts/entry'
 import './index.css'
+import './iconfont.css'
 
 export default {
   ...Theme,

@@ -11,7 +11,8 @@ const sidebar = [
   {
     text: '通用',
     items: [
-      {text: 'Button 按钮', link: '/components/button/'} // /components/button/index.md
+      {text: 'Button 按钮', link: '/components/button/'},
+      {text: 'Icon 图标', link: '/components/icon/'},
     ]
   },
   {

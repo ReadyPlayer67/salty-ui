@@ -18,7 +18,8 @@ const sidebar = [
   {
     text: '导航',
     items: [
-      {text: 'Pagination 分页', link: '/components/pagination/'}
+      {text: 'Pagination 分页', link: '/components/pagination/'},
+      {text: 'Tabs 标签页', link: '/components/tab/'},
     ]
   },
   {

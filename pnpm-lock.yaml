@@ -20,6 +20,7 @@ specifiers:
   sass: ^1.54.5
   tailwindcss: ^3.1.8
   typescript: ^4.6.4
+  uuid: ^9.0.0
   vite: ^3.0.7
   vitepress: 1.0.0-alpha.8
   vitepress-theme-demoblock: ^1.4.2
@@ -29,6 +30,7 @@ specifiers:
 
 dependencies:
   async-validator: 4.2.5
+  uuid: 9.0.0
   vue: 3.2.37
 
 devDependencies:
@@ -4599,6 +4601,11 @@ packages:
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: true
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /validate-npm-package-name/3.0.0:
     resolution: {integrity: sha512-M6w37eVCMMouJ9V/sdPGnC5H4uDr73/+xdq0FBLO3TFFX1+7wiUY6Es328NN+y43tmY+doUdN9g9J21vqB7iLw==}

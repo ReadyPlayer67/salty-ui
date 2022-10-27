@@ -17,6 +17,10 @@
       color: #303133;
       padding-bottom: 4px;
 
+      svg {
+        display: inline-block;
+      }
+
       &:first-child {
         margin-left: 0;
       }

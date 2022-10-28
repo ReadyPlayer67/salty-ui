@@ -1,5 +1,5 @@
-import {ExtractPropTypes, PropType} from "vue"
-import {IInnerTreeNode, treeProps} from "../tree-type";
+import { ExtractPropTypes, PropType } from 'vue'
+import { IInnerTreeNode, treeProps } from '../tree-type'
 
 export const treeNodeProps = {
   ...treeProps,
@@ -10,4 +10,3 @@ export const treeNodeProps = {
 } as const
 
 export type TreeNodeProps = ExtractPropTypes<typeof treeNodeProps>
-

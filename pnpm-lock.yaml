@@ -1,7 +1,9 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@floating-ui/dom': ^1.0.3
   '@testing-library/vue': ^6.6.1
+  '@types/uuid': ^8.3.4
   '@typescript-eslint/eslint-plugin': ^5.35.1
   '@typescript-eslint/parser': ^5.35.1
   '@vitejs/plugin-vue': ^3.0.3
@@ -29,6 +31,8 @@ specifiers:
   vue-tsc: ^0.39.5
 
 dependencies:
+  '@floating-ui/dom': 1.0.3
+  '@types/uuid': 8.3.4
   async-validator: 4.2.5
   uuid: 9.0.0
   vue: 3.2.37
@@ -569,6 +573,16 @@ packages:
       - supports-color
     dev: true
 
+  /@floating-ui/core/1.0.1:
+    resolution: {integrity: sha512-bO37brCPfteXQfFY0DyNDGB3+IMe4j150KFQcgJ5aBP295p9nBGeHEs/p0czrRbtlHq4Px/yoPXO/+dOCcF4uA==}
+    dev: false
+
+  /@floating-ui/dom/1.0.3:
+    resolution: {integrity: sha512-6H1kwjkOZKabApNtXRiYHvMmYJToJ1DV7rQ3xc/WJpOABhQIOJJOdz2AOejj8X+gcybaFmBpisVTZxBZAM3V0w==}
+    dependencies:
+      '@floating-ui/core': 1.0.1
+    dev: false
+
   /@francoischalifour/autocomplete-core/1.0.0-alpha.28:
     resolution: {integrity: sha512-rL9x+72btViw+9icfBKUJjZj87FgjFrD2esuTUqtj4RAX3s4AuVZiN8XEsfjQBSc6qJk31cxlvqZHC/BIyYXgg==}
     dev: true
@@ -808,6 +822,10 @@ packages:
     dependencies:
       '@types/node': 18.7.13
     dev: true
+
+  /@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==}
+    dev: false
 
   /@types/web-bluetooth/0.0.15:
     resolution: {integrity: sha512-w7hEHXnPMEZ+4nGKl/KDRVpxkwYxYExuHOYXyzIzCDzEZ9ZCGMAewulr9IqJu2LR4N37fcnb1XVeuZ09qgOxhA==}

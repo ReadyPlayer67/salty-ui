@@ -1,11 +1,11 @@
-import {ExtractPropTypes} from "vue"
+import { ExtractPropTypes } from 'vue'
 
 export const tabProps = {
   modelValue: {
     type: String,
     default: ''
   },
-  editable:{
+  editable: {
     type: Boolean,
     default: false
   }
@@ -14,8 +14,8 @@ export const tabProps = {
 export type TabProps = ExtractPropTypes<typeof tabProps>
 
 export interface ITabData {
-  id: string,
-  title: string,
-  type?: 'random',
+  id: string
+  title: string
+  type?: 'random'
   content?: string
 }

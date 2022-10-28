@@ -1,6 +1,6 @@
 import { App } from 'vue'
 import Form from './src/form'
-import FormItem from "./src/form-item";
+import FormItem from './src/form-item'
 
 // 具名导出
 export { Form, FormItem }

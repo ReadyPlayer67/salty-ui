@@ -37,11 +37,11 @@ Salty-UI
 - [x] Button
 - [x] Pagination
 - [x] Form
-- [ ] Modal
+- [x] Modal
+- [x] Tabs
 - [ ] Popover
 - [ ] Toast
 - [ ] Loading
-- [ ] Tabs
 - [ ] Table
 - [ ] Breadcrumb
 

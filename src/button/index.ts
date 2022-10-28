@@ -1,10 +1,10 @@
-import Button from "./src/button";
-import type {App} from "vue";
+import Button from './src/button'
+import type { App } from 'vue'
 //具名导出
-export {Button}
+export { Button }
 //导出插件
 export default {
-  install(app:App){
-    app.component(Button.name,Button)
+  install(app: App) {
+    app.component(Button.name, Button)
   }
 }

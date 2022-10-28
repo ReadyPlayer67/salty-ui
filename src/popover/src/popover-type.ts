@@ -12,6 +12,10 @@ export const popoverProps = {
   title: {
     type: String,
     default: ''
+  },
+  showArrow: {
+    type: Boolean,
+    default: false
   }
 } as const
 

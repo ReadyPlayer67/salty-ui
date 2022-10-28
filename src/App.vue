@@ -29,11 +29,18 @@ const host = ref()
         />
       </div>
     </s-base-modal> -->
-    <div ref="host" class="host" style="border: 1px solid red" @click="open">
+    <div
+      ref="host"
+      class="host"
+      style="border: 1px solid red; width: 200px"
+      @click="open"
+    >
       host
     </div>
     <!-- <s-base-popover v-model="visible" :host="host">overlay</s-base-popover> -->
-    <s-popover v-model="visible" :host="host" title="title">overlay</s-popover>
+    <s-popover v-model="visible" :host="host" title="title" show-arrow
+      >overlay</s-popover
+    >
   </div>
 </template>
 

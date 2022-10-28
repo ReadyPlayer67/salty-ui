@@ -1,6 +1,9 @@
-
 //获取中间部分应当显示的页码数组的工具方法
-export function getCenterPage(totalPage: number, pageIndex: number, pagerCount: number) {
+export function getCenterPage(
+  totalPage: number,
+  pageIndex: number,
+  pagerCount: number
+) {
   //利用totalPage构造长度为totalPage，下标从0开始的数组：[0,1,2,3,4,5,6,7]
   const totalPageArr = Array.from(Array(totalPage).keys())
   if (totalPage <= pagerCount) {

@@ -1,7 +1,7 @@
-import {ExtractPropTypes, PropType} from "vue"
+import { ExtractPropTypes, PropType } from 'vue'
 
 export const inputProps = {
-  modelValue:{
+  modelValue: {
     type: String,
     default: ''
   },

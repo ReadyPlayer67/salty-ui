@@ -1,4 +1,4 @@
-import {ref} from "vue";
+import { ref } from 'vue'
 
 export default function usePage(defaultPageIndex = 1) {
   const pageIndex = ref(defaultPageIndex)
@@ -12,5 +12,5 @@ export default function usePage(defaultPageIndex = 1) {
   const prevPage = () => jumpPage(-1)
 
   const nextPage = () => jumpPage(1)
-  return {pageIndex, setPageIndex, jumpPage, prevPage, nextPage}
+  return { pageIndex, setPageIndex, jumpPage, prevPage, nextPage }
 }

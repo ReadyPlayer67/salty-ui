@@ -1,10 +1,13 @@
-import {IInnerTreeNode} from "../tree-type";
-import {ref, Ref} from "vue";
-import {IUseCheck, IUseCore, IUseOperate} from "./use-tree-types";
-import {randomId} from "../../../shared/utils";
+import { IInnerTreeNode } from '../tree-type'
+import { ref, Ref } from 'vue'
+import { IUseCheck, IUseCore, IUseOperate } from './use-tree-types'
+import { randomId } from '../../../shared/utils'
 
-export function useOperate(innerData: Ref<IInnerTreeNode[]>, core: IUseCore): IUseOperate {
-  const {getChildren,getIndex} = core
+export function useOperate(
+  innerData: Ref<IInnerTreeNode[]>,
+  core: IUseCore
+): IUseOperate {
+  const { getChildren, getIndex } = core
   const append = (parent: IInnerTreeNode, node: IInnerTreeNode) => {
     //获取parent节点的最后一个子节点
     const children = getChildren(parent, false)

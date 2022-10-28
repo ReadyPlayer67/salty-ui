@@ -1,8 +1,11 @@
-import {IInnerTreeNode, ITreeNode} from "../tree-type";
-import {ComputedRef, Ref} from "vue";
+import { IInnerTreeNode, ITreeNode } from '../tree-type'
+import { ComputedRef, Ref } from 'vue'
 
 export type IUseCore = {
-  getChildren: (treeNode: IInnerTreeNode, recursive?: boolean) => IInnerTreeNode[]
+  getChildren: (
+    treeNode: IInnerTreeNode,
+    recursive?: boolean
+  ) => IInnerTreeNode[]
   getIndex: (node: IInnerTreeNode) => number
   expandedTree: ComputedRef<IInnerTreeNode[]>
   getNode: (node: IInnerTreeNode) => IInnerTreeNode | undefined
@@ -28,7 +31,7 @@ export type IUseLazyLoad = {
 
 export type LazyNodeResult = {
   node: IInnerTreeNode
-  treeItems: ITreeNode[]  //从后端获取的懒加载节点数据
+  treeItems: ITreeNode[] //从后端获取的懒加载节点数据
 }
 
 export type IDragdrop = boolean | IDropType
@@ -57,4 +60,9 @@ export interface DragState {
 export type TreeUtils = {
   //原始tree中的数据
   innerData: Ref<IInnerTreeNode[]>
-} & IUseCore & IUseToggle & IUseCheck & IUseOperate & IUseLazyLoad & IUseDraggable
+} & IUseCore &
+  IUseToggle &
+  IUseCheck &
+  IUseOperate &
+  IUseLazyLoad &
+  IUseDraggable

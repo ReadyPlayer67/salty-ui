@@ -1,13 +1,13 @@
-import {computed, defineComponent, provide} from "vue";
-import {formContextToken, FormProps, formProps} from "./form-type";
-import {FormItemContext} from "./form-item-type";
-import {Values} from "async-validator";
+import { computed, defineComponent, provide } from 'vue'
+import { formContextToken, FormProps, formProps } from './form-type'
+import { FormItemContext } from './form-item-type'
+import { Values } from 'async-validator'
 
 export default defineComponent({
   name: 'SForm',
   props: formProps,
   emits: ['submit'],
-  setup(props: FormProps, {slots, emit, expose}) {
+  setup(props: FormProps, { slots, emit, expose }) {
     const labelData = computed(() => ({
       layout: props.layout,
       labelSize: props.labelSize,
@@ -31,14 +31,16 @@ export default defineComponent({
       event.preventDefault()
       emit('submit')
     }
-    const validate = (callback:(valid: boolean) => void) => {
+    const validate = (callback: (valid: boolean) => void) => {
       const tasks: Promise<Values>[] = []
       formItems.forEach(item => tasks.push(item.validate()))
-      Promise.all(tasks).then(() => {
-        callback(true)
-      }).catch(() => {
-        callback(false)
-      })
+      Promise.all(tasks)
+        .then(() => {
+          callback(true)
+        })
+        .catch(() => {
+          callback(false)
+        })
     }
     expose({
       validate

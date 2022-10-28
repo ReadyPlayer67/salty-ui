@@ -10,8 +10,11 @@ module.exports = {
     'plugin:prettier/recommended'
   ],
   overrides: [],
-  parser: '@typescript-eslint/parser',
+  //用vue-eslint-parser去解析.vue文件中<template>中的代码
+  parser: 'vue-eslint-parser',
   parserOptions: {
+    //用@typescript-eslint/parser去解析.vue文件中<script>中的代码
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 'latest',
     sourceType: 'module'
   },

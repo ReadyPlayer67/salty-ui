@@ -1,5 +1,5 @@
-import {ExtractPropTypes, PropType} from "vue"
-import {IDragdrop} from "./composables/use-tree-types";
+import { ExtractPropTypes, PropType } from 'vue'
+import { IDragdrop } from './composables/use-tree-types'
 
 export const treeProps = {
   data: {
@@ -46,9 +46,9 @@ export interface ITreeNode {
 //因为嵌套结构需要通过递归的方式来操作，编码不方便而且很难使用虚拟滚动来做性能优化
 //设计一个扁平的数据结构IInnerTreeNode，将树的嵌套数据结构拍平成一个扁平的数组
 export interface IInnerTreeNode extends ITreeNode {
-  parentId?: string; // 父节点ID
-  level: number;     // 节点层级
-  isLeaf?: boolean;  // 是否叶子结点
-  loading?: boolean   //节点是否显示加载中
-  childNodeCount?: number  //该节点子节点数量
+  parentId?: string // 父节点ID
+  level: number // 节点层级
+  isLeaf?: boolean // 是否叶子结点
+  loading?: boolean //节点是否显示加载中
+  childNodeCount?: number //该节点子节点数量
 }

@@ -1,9 +1,9 @@
 const path = require('path')
-const {defineConfig, build} = require('vite')
+const { defineConfig, build } = require('vite')
 const vue = require('@vitejs/plugin-vue')
 const vueJsxPlugin = require('@vitejs/plugin-vue-jsx')
 const fsExtra = require('fs-extra')
-const fs = require("fs");
+const fs = require('fs')
 
 // 入口文件
 const entryFile = path.resolve(__dirname, './entry.ts')
@@ -28,7 +28,7 @@ const rollupOptions = {
 }
 
 //生成package.json
-const createPackageJson = (name) => {
+const createPackageJson = name => {
   const fileStr = `{
     "name": "${name || 'salty-ui'}",
     "version": "0.0.0",
@@ -59,7 +59,6 @@ const createPackageJson = (name) => {
       'utf-8'
     )
   }
-
 }
 
 // 单组件按需构建
@@ -106,16 +105,18 @@ const buildAll = async () => {
 const buildLib = async () => {
   await buildAll()
 
-  fs.readdirSync(componentsDir).filter(name => {
-    //读取componentDir（即src）目录下，只要目录不要文件
-    //且要求这个目录下必须有一个index.ts的文件，这样的目录我们才认为是一个组件目录
-    const componentDir = path.resolve(componentsDir, name)
-    const isDir = fs.lstatSync(componentDir).isDirectory()
-    return isDir && fs.readdirSync(componentDir).includes('index.ts')
-  }).forEach(async name => {
-    //遍历组件目录，执行单独构建方法
-    await buildSingle(name)
-  })
+  fs.readdirSync(componentsDir)
+    .filter(name => {
+      //读取componentDir（即src）目录下，只要目录不要文件
+      //且要求这个目录下必须有一个index.ts的文件，这样的目录我们才认为是一个组件目录
+      const componentDir = path.resolve(componentsDir, name)
+      const isDir = fs.lstatSync(componentDir).isDirectory()
+      return isDir && fs.readdirSync(componentDir).includes('index.ts')
+    })
+    .forEach(async name => {
+      //遍历组件目录，执行单独构建方法
+      await buildSingle(name)
+    })
 }
 
 buildLib()

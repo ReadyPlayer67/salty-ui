@@ -99,15 +99,15 @@ export function useDragdrop(
         ? dropInner
           ? 0.25
           : dropNext
-            ? 0.45
-            : 1
+          ? 0.45
+          : 1
         : -1
       const nextPercent = dropNext
         ? dropInner
           ? 0.75
           : dropPrev
-            ? 0.55
-            : 0
+          ? 0.55
+          : 0
         : 1
       const currentTarget = event.currentTarget as HTMLElement | null
       const targetPosition = currentTarget?.getBoundingClientRect()
@@ -176,7 +176,8 @@ export function useDragdrop(
       let cloneDragNode: IInnerTreeNode
       const childrenOfDragNode = getChildren(dragNode)
       const parentOfDragNode = getParent(dragNode)
-      if (dragState.dropType === 'dropInner') {//拖拽到dropNode内部
+      if (dragState.dropType === 'dropInner') {
+        //拖拽到dropNode内部
         cloneDragNode = {
           ...dragNode,
           parentId: dropNode.id,
@@ -190,7 +191,8 @@ export function useDragdrop(
         const dragNodeIndex = data.value.indexOf(dragNode)
         //删除旧的拖拽节点
         data.value.splice(dragNodeIndex, 1)
-      } else if (dragState.dropType === 'dropNext') {//拖拽到dropNode后面
+      } else if (dragState.dropType === 'dropNext') {
+        //拖拽到dropNode后面
         cloneDragNode = {
           ...dragNode,
           parentId: dropNode.parentId,
@@ -207,7 +209,8 @@ export function useDragdrop(
         const dragNodeIndex = data.value.indexOf(dragNode)
         //删除旧的拖拽节点
         data.value.splice(dragNodeIndex, 1)
-      } else if (dragState.dropType === 'dropPrev') {//拖拽到dropNode前面
+      } else if (dragState.dropType === 'dropPrev') {
+        //拖拽到dropNode前面
         cloneDragNode = {
           ...dragNode,
           parentId: dropNode.parentId,

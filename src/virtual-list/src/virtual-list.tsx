@@ -1,11 +1,18 @@
-import {computed, defineComponent, onMounted, ref, SetupContext, toRefs} from "vue";
-import {VirtualListProps, virtualListProps} from "./virtual-list-type";
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  ref,
+  SetupContext,
+  toRefs
+} from 'vue'
+import { VirtualListProps, virtualListProps } from './virtual-list-type'
 
 export default defineComponent({
   name: 'SVirtualList',
   props: virtualListProps,
-  setup: function (props: VirtualListProps, {slots}: SetupContext) {
-    const {data, itemHeight, component: Component} = toRefs(props)
+  setup: function (props: VirtualListProps, { slots }: SetupContext) {
+    const { data, itemHeight, component: Component } = toRefs(props)
     const containerRef = ref()
     const containerHeight = ref(0)
     //起始索引
@@ -16,7 +23,10 @@ export default defineComponent({
     })
     //可视区域数据
     const visibleData = computed(() => {
-      return data.value.slice(startIndex.value, Math.min( startIndex.value + visibleCount.value,data.value.length))
+      return data.value.slice(
+        startIndex.value,
+        Math.min(startIndex.value + visibleCount.value, data.value.length)
+      )
       // return data.value.slice(startIndex.value, startIndex.value + visibleCount.value)
     })
     onMounted(() => {
@@ -26,7 +36,7 @@ export default defineComponent({
     //列表在Y轴transform的偏移量
     const offsetY = ref(0)
     const scrollEvent = (event: UIEvent) => {
-      const {scrollTop} = event.target as HTMLElement
+      const { scrollTop } = event.target as HTMLElement
       //当scrollTop发生变化，重新计算startIndex，同时依赖startIndex的visibleData也就动态变化了
       //某个元素被遮挡了一半也是需要显示的，所以这里要向下取整
       startIndex.value = Math.floor(scrollTop / itemHeight.value)
@@ -35,14 +45,22 @@ export default defineComponent({
     }
     return () => {
       return (
-        <div class="s-virtual-list__container" ref={containerRef} onScroll={scrollEvent}>
-          <div class="s-virtual-list__blank" style={{height: `${data.value.length * itemHeight.value}px`}}></div>
-          <div class="s-virtual-list" style={{transform: `translate3d(0,${offsetY.value}px,0)`}}>
-            {
-              visibleData.value.map((item, index) => (
-                slots.default?.({item, index})
-              ))
-            }
+        <div
+          class="s-virtual-list__container"
+          ref={containerRef}
+          onScroll={scrollEvent}
+        >
+          <div
+            class="s-virtual-list__blank"
+            style={{ height: `${data.value.length * itemHeight.value}px` }}
+          ></div>
+          <div
+            class="s-virtual-list"
+            style={{ transform: `translate3d(0,${offsetY.value}px,0)` }}
+          >
+            {visibleData.value.map((item, index) =>
+              slots.default?.({ item, index })
+            )}
           </div>
         </div>
       )

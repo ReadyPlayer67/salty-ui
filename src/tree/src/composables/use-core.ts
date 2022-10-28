@@ -1,8 +1,8 @@
-import {IInnerTreeNode} from "../tree-type";
-import {computed, Ref} from "vue";
-import {IUseCore} from "./use-tree-types";
+import { IInnerTreeNode } from '../tree-type'
+import { computed, Ref } from 'vue'
+import { IUseCore } from './use-tree-types'
 
-export function useCore(innerData: Ref<IInnerTreeNode[]>) : IUseCore {
+export function useCore(innerData: Ref<IInnerTreeNode[]>): IUseCore {
   const expandedTree = computed(() => {
     //维护一个数组用于存放应当折叠的节点
     let excludedNodes: IInnerTreeNode[] = []
@@ -27,7 +27,11 @@ export function useCore(innerData: Ref<IInnerTreeNode[]>) : IUseCore {
     //从startIndex开始寻找level比node大的节点，即node的子节点
     //注意，i<innerData.value.length && node.level < innerData.value[i].level这种写法当遇到任意条件不满足，循环就会终止
     //所以当遇到非node的子节点时，循环就会停止，不会查找到其他的叶子节点
-    for (let i = startIndex + 1; i < innerData.value.length && node.level < innerData.value[i].level; i++) {
+    for (
+      let i = startIndex + 1;
+      i < innerData.value.length && node.level < innerData.value[i].level;
+      i++
+    ) {
       if (recursive) {
         result.push(innerData.value[i])
       } else {

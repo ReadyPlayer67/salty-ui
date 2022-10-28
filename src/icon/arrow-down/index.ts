@@ -1,1 +1,1 @@
-export {ArrowDownIcon} from './arrow-down'
+export { ArrowDownIcon } from './arrow-down'

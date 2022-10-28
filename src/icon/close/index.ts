@@ -1,1 +1,1 @@
-export {CloseIcon} from './close'
+export { CloseIcon } from './close'

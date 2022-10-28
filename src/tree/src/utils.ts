@@ -1,4 +1,4 @@
-import {IInnerTreeNode, ITreeNode} from "./tree-type";
+import { IInnerTreeNode, ITreeNode } from './tree-type'
 
 export function generateInnerTree(
   tree: ITreeNode[],
@@ -7,14 +7,14 @@ export function generateInnerTree(
 ): IInnerTreeNode[] {
   level++
   return tree.reduce((prev, cur) => {
-    const o = {...cur} as IInnerTreeNode
+    const o = { ...cur } as IInnerTreeNode
     o.level = level
-    if(path.length){
-      o.parentId = path[path.length-1].id
+    if (path.length) {
+      o.parentId = path[path.length - 1].id
     }
     if (o.children) {
       //递归地将o.children拍平成一个数组
-      const children = generateInnerTree(o.children, level, [...path,o])
+      const children = generateInnerTree(o.children, level, [...path, o])
       //删除IInnerTreeNode上的children属性
       delete o.children
       //将当前节点和他所有的children节点拼接在一起
@@ -22,11 +22,10 @@ export function generateInnerTree(
     } else {
       //如果是懒加载，isLeaf会被设置为false，则我们不需要设置
       //如果没有初始化，isLeaf默认设置为true
-      if(o.isLeaf === undefined){
+      if (o.isLeaf === undefined) {
         o.isLeaf = true
       }
       return prev.concat(o)
     }
   }, [] as IInnerTreeNode[])
 }
-

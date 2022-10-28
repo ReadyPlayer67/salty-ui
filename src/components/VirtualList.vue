@@ -1,10 +1,18 @@
 <template>
   <div class="s-virtual-list__container" @scroll="scrollEvent">
-    <div class="s-virtual-list__blank" :style="{height:`${totalCount*itemHeight}px`}"></div>
-    <div class="s-virtual-list" :style="{transform: `translate3d(0,${offsetY}px,0)`}">
+    <div
+      class="s-virtual-list__blank"
+      :style="{ height: `${totalCount * itemHeight}px` }"
+    ></div>
+    <div
+      class="s-virtual-list"
+      :style="{ transform: `translate3d(0,${offsetY}px,0)` }"
+    >
       <!-- 实际的列表数据 -->
-      <div v-for="(item,index) in visibleData" :key="index">Item {{item.value}}</div>
-<!--      <div v-for="(item,index) in data" :key="index">Item {{item.value}}</div>-->
+      <div v-for="(item, index) in visibleData" :key="index">
+        Item {{ item.value }}
+      </div>
+      <!--      <div v-for="(item,index) in data" :key="index">Item {{item.value}}</div>-->
     </div>
   </div>
 </template>
@@ -15,7 +23,7 @@
 //2.列表项高度 itemHeight
 //动态值
 //1.滚动条位置 scrollTop
-import {computed, ref} from "vue";
+import { computed, ref } from 'vue'
 
 const containerHeight = 300
 const itemHeight = 24
@@ -24,7 +32,9 @@ const visibleCount = Math.ceil(containerHeight / itemHeight)
 //列表总数
 const totalCount = 100000
 //构建列表数据
-const data = ref(Array.from({length: totalCount}).map((_, index) => ({value: index})))
+const data = ref(
+  Array.from({ length: totalCount }).map((_, index) => ({ value: index }))
+)
 //起始索引
 const startIndex = ref(0)
 //可视区域数据
@@ -34,7 +44,7 @@ const visibleData = computed(() => {
 //列表在Y轴transform的偏移量
 const offsetY = ref(0)
 const scrollEvent = (event: UIEvent) => {
-  const {scrollTop} = event.target as HTMLElement
+  const { scrollTop } = event.target as HTMLElement
   //当scrollTop发生变化，重新计算startIndex，同时依赖startIndex的visibleData也就动态变化了
   //某个元素被遮挡了一半也是需要显示的，所以这里要向下取整
   startIndex.value = Math.floor(scrollTop / itemHeight)
@@ -66,7 +76,11 @@ const scrollEvent = (event: UIEvent) => {
   }
 
   & {
-    transform: translate3d(0, 0, 0); // 中间的是列表区域在Y轴的偏移量，会跟随鼠标滚动实时变化
+    transform: translate3d(
+      0,
+      0,
+      0
+    ); // 中间的是列表区域在Y轴的偏移量，会跟随鼠标滚动实时变化
   }
 }
 </style>

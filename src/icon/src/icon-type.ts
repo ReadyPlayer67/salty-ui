@@ -1,4 +1,4 @@
-import {ExtractPropTypes, PropType} from "vue"
+import { ExtractPropTypes, PropType } from 'vue'
 
 export const iconProps = {
   name: {

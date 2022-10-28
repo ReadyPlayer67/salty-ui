@@ -8,7 +8,6 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .js,.ts,.tsx,.vue",
-    "prepare": "husky install",
     "docs:dev": "vitepress dev docs",
     "docs:serve": "vitepress serve docs",
     "docs:build": "vitepress build docs",
@@ -45,7 +44,7 @@
     "vitepress": "1.0.0-alpha.8",
     "vitepress-theme-demoblock": "^1.4.2",
     "vitest": "^0.22.1",
-    "vue-tsc": "^0.39.5"
+    "vue-tsc": "^1.0.9"
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue}": "eslint --cache --fix"

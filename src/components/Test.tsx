@@ -1,4 +1,4 @@
-import {defineComponent, ref, withModifiers} from 'vue'
+import { defineComponent, ref, withModifiers } from 'vue'
 
 // export default () => <div>test</div>
 
@@ -10,14 +10,14 @@ import {defineComponent, ref, withModifiers} from 'vue'
 
 export default defineComponent({
   directives: {
-    focus:{
-      mounted(el){
+    focus: {
+      mounted(el) {
         el.focus()
       }
     }
   },
-  emits:['click'],
-  setup(props, {slots,emit}) {
+  emits: ['click'],
+  setup(props, { slots, emit }) {
     const count = ref(0)
     const inc = () => {
       count.value++
@@ -30,12 +30,14 @@ export default defineComponent({
         //事件修饰符
         <div onClick={withModifiers(inc, ['self'])}>
           test: {count.value}
-          <br/>
-          <input v-show={false}/>
+          <br />
+          <input v-show={false} />
           {/*<input v-focus v-model={count.value}/>*/}
           <div>{span}</div>
           <ul>
-            {[1, 2, 3].map(item => <li>{item}</li>)}
+            {[1, 2, 3].map(item => (
+              <li>{item}</li>
+            ))}
           </ul>
           {/*显示插槽内容*/}
           <div>{slots.default ? slots.default() : 'default content'}</div>

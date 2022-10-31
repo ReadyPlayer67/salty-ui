@@ -1,4 +1,4 @@
-import { computePosition, arrow, offset } from '@floating-ui/dom'
+import { computePosition, arrow, offset, Placement } from '@floating-ui/dom'
 import {
   defineComponent,
   nextTick,
@@ -24,12 +24,16 @@ export default defineComponent({
     showArrow: {
       type: Boolean,
       default: false
+    },
+    placement: {
+      type: String as PropType<Placement>,
+      default: 'bottom'
     }
   },
   emits: ['update:modelValue'],
   setup(props, { slots, attrs }) {
     //获取属性中的关键值
-    const { modelValue, host: hostRef, showArrow } = toRefs(props)
+    const { modelValue, host: hostRef, showArrow, placement } = toRefs(props)
     //箭头元素
     const arrowRef = ref()
     //浮动元素
@@ -42,22 +46,40 @@ export default defineComponent({
         middleware.push(arrow({ element: arrowRef.value }))
       }
       //计算定位
-      computePosition(hostRef.value, overlayRef.value, { middleware }).then(
-        ({ x, y, middlewareData, placement }) => {
-          //设置浮层样式
-          Object.assign(overlayRef.value.style, {
-            left: x + 'px',
-            top: y + 'px'
-          })
+      computePosition(hostRef.value, overlayRef.value, {
+        middleware,
+        placement: placement.value
+      }).then(({ x, y, middlewareData, placement }) => {
+        //设置浮层样式
+        Object.assign(overlayRef.value.style, {
+          left: x + 'px',
+          top: y + 'px'
+        })
+        if (showArrow.value) {
+          const { x: arrowX, y: arrowY } = middlewareData.arrow!
+          //获取当前浮层所在位置
+          const currentSide = placement.split('-')[0]
+          //获取箭头定位位置
+          const statcSide = {
+            top: 'bottom',
+            bottom: 'top',
+            left: 'right',
+            right: 'left'
+          }[currentSide]
+          //获取正确显示箭头应当隐藏的border
+          const SIDE = ['top', 'right', 'bottom', 'left']
+          const prevIndex = SIDE.indexOf(currentSide) - 1
+          const nextSide = SIDE[prevIndex < 0 ? SIDE.length - 1 : prevIndex]
           //设置箭头样式
           Object.assign(arrowRef.value.style, {
-            left: middlewareData.arrow?.x + 'px',
-            top: '-4px',
-            'border-bottom-color': 'transparent',
-            'border-right-color': 'transparent'
+            left: arrowX + 'px',
+            top: arrowY + 'px',
+            [statcSide!]: '-4px',
+            [`border-${currentSide}-color`]: 'transparent',
+            [`border-${nextSide}-color`]: 'transparent'
           })
         }
-      )
+      })
     }
     //在modelValue变化时重新计算浮层位置
     watch(

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "cli": "tsc && node ./build/src/index.js create"
+    "cli": "npx tsc && node ./build/src/index.js create"
   },
   "keywords": [],
   "author": "",

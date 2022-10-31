@@ -32,13 +32,18 @@ const host = ref()
     <div
       ref="host"
       class="host"
-      style="border: 1px solid red; width: 200px"
+      style="border: 1px solid red; width: 200px; margin: 100px auto"
       @click="open"
     >
       host
     </div>
     <!-- <s-base-popover v-model="visible" :host="host">overlay</s-base-popover> -->
-    <s-popover v-model="visible" :host="host" title="title" show-arrow
+    <s-popover
+      v-model="visible"
+      :host="host"
+      title="title"
+      show-arrow
+      placement="left"
       >overlay</s-popover
     >
   </div>

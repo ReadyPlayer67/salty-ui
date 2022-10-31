@@ -38,8 +38,10 @@
 :::demo
 ```vue
 <template>
-  <s-icon component="vue" color="blue" size="30px"></s-icon>
-  <s-icon component="react" color="blue" size="30px"></s-icon>
+  <s-icon name="vue" size="30px" color="green"></s-icon>
+  <s-icon name="react" :size="30" color="blue"></s-icon>
+  <!-- <s-icon component="vue" color="blue" size="30px"></s-icon>
+  <s-icon component="react" color="blue" size="30px"></s-icon> -->
   <ArrowDownIcon size="30"/>
 </template>
 ```

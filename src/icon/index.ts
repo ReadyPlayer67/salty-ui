@@ -1,10 +1,10 @@
-import {App} from 'vue'
+import { App } from 'vue'
 import Icon from './src/icon'
-import {ArrowDownIcon} from './arrow-down'
-import {CloseIcon} from './close'
+import { ArrowDownIcon } from './arrow-down'
+import { CloseIcon } from './close'
 
 // 具名导出
-export {Icon, ArrowDownIcon, CloseIcon}
+export { Icon, ArrowDownIcon, CloseIcon }
 
 // 导出插件
 export default {

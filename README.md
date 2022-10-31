@@ -39,7 +39,7 @@ Salty-UI
 - [x] Form
 - [x] Modal
 - [x] Tabs
-- [ ] Popover
+- [x] Popover
 - [ ] Toast
 - [ ] Loading
 - [ ] Table

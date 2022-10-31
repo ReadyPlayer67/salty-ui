@@ -1,4 +1,4 @@
-import { ExtractPropTypes, PropType } from "vue";
+import { ExtractPropTypes, PropType } from 'vue'
 
 export type IButtonType = 'primary' | 'secondary' | 'text'
 export type IButtonSize = 'large' | 'medium' | 'small'

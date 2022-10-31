@@ -9,9 +9,10 @@ import InputPlugin, { Input } from '../src/input'
 import ModalPlugin, { Modal } from '../src/modal'
 import IconPlugin, { Icon } from '../src/icon'
 import TabPlugin, { Tab } from '../src/tab'
+import PopoverPlugin, { Popover } from '../src/popover'
 
 //2.导出这些组件
-export { Button, Tree, Pagination, Form, Input, Modal, Icon, Tab }
+export { Button, Tree, Pagination, Form, Input, Modal, Icon, Tab, Popover }
 
 //3.导出一个vue插件
 const installs = [
@@ -22,7 +23,8 @@ const installs = [
   InputPlugin,
   ModalPlugin,
   IconPlugin,
-  TabPlugin
+  TabPlugin,
+  PopoverPlugin
 ]
 export default {
   install(app: App) {

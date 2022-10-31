@@ -38,12 +38,7 @@ const host = ref()
       host
     </div>
     <!-- <s-base-popover v-model="visible" :host="host">overlay</s-base-popover> -->
-    <s-popover
-      v-model="visible"
-      :host="host"
-      title="title"
-      show-arrow
-      placement="left"
+    <s-popover v-model="visible" :host="host" title="title" show-arrow
       >overlay</s-popover
     >
   </div>

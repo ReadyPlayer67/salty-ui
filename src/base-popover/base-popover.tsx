@@ -1,8 +1,16 @@
-import { computePosition, arrow, offset, Placement } from '@floating-ui/dom'
 import {
+  computePosition,
+  arrow,
+  offset,
+  Placement,
+  autoPlacement
+} from '@floating-ui/dom'
+import {
+  DefineComponent,
   defineComponent,
   nextTick,
   onMounted,
+  onUnmounted,
   PropType,
   ref,
   toRefs,
@@ -18,7 +26,7 @@ export default defineComponent({
       default: false
     },
     host: {
-      type: Object as PropType<HTMLElement>,
+      type: Object as PropType<HTMLElement | DefineComponent>,
       default: () => null
     },
     showArrow: {
@@ -33,7 +41,10 @@ export default defineComponent({
   emits: ['update:modelValue'],
   setup(props, { slots, attrs }) {
     //获取属性中的关键值
-    const { modelValue, host: hostRef, showArrow, placement } = toRefs(props)
+    const { modelValue, host, showArrow, placement } = toRefs(props)
+    //这里要做一个兼容处理，因为宿主元素可能是一个组件也可能是一个element，如果是组件要通过$el属性获取他的dom节点
+    const hostRef =
+      host.value instanceof HTMLElement ? host.value : host.value.$el
     //箭头元素
     const arrowRef = ref()
     //浮动元素
@@ -45,10 +56,14 @@ export default defineComponent({
         middleware.push(offset(8))
         middleware.push(arrow({ element: arrowRef.value }))
       }
+      //如果用户没有指定placement，则自动调整定位
+      if (!placement.value) {
+        middleware.push(autoPlacement())
+      }
       //计算定位
-      computePosition(hostRef.value, overlayRef.value, {
+      computePosition(hostRef, overlayRef.value, {
         middleware,
-        placement: placement.value
+        placement: placement.value || 'bottom'
       }).then(({ x, y, middlewareData, placement }) => {
         //设置浮层样式
         Object.assign(overlayRef.value.style, {
@@ -81,12 +96,23 @@ export default defineComponent({
         }
       })
     }
+    //创建mutationObserver监听宿主元素的状态变化
+    const mutationObserver = new MutationObserver(() => updatePosition())
     //在modelValue变化时重新计算浮层位置
     watch(
       modelValue,
       newVal => {
         if (newVal) {
           nextTick(updatePosition)
+          //监听页面resize，scroll事件和host元素的尺寸，定位变化
+          hostRef && mutationObserver.observe(hostRef, { attributes: true })
+          window.addEventListener('resize', updatePosition)
+          window.addEventListener('scroll', updatePosition)
+        } else {
+          //浮层销毁时要同时销毁mutationObserver和事件监听
+          mutationObserver.disconnect()
+          window.removeEventListener('resize', updatePosition)
+          window.removeEventListener('scroll', updatePosition)
         }
       },
       {
@@ -94,6 +120,11 @@ export default defineComponent({
         immediate: true
       }
     )
+    onUnmounted(() => {
+      mutationObserver.disconnect()
+      window.removeEventListener('resize', updatePosition)
+      window.removeEventListener('scroll', updatePosition)
+    })
     return () => (
       <>
         {modelValue.value && (
